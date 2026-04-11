@@ -1,7 +1,0 @@
-#!/bin/bash
-tmux rename-window -t leetcode-top-interview-150:1 vim
-tmux send-keys -t leetcode-top-interview-150:1 "nvim ." C-m
-tmux split-window -h -t leetcode-top-interview-150:1
-tmux resize-pane -R 50
-tmux select-pane -L
-tmux select-window -t leetcode-top-interview-150:1
