@@ -9,8 +9,13 @@ class Solution:
             vis[x][y] = 1
             if grid[x][y] == "0":
                 return False
-            l, r, t, b = max(0,x -1), min(rows-1,x+1), max(0, y-1), min(y+1, cols-1)
-            for xi, yi in [(l, y), (r, y), (x, t), (x, b)]:
+            t, b, l, r = (
+                max(0, x - 1),
+                min(rows - 1, x + 1),
+                max(0, y - 1),
+                min(y + 1, cols - 1),
+            )
+            for xi, yi in [(t, y), (b, y), (x, l), (x, r)]:
                 if not vis[xi][yi] and grid[xi][yi] == "1":
                     dfs(xi, yi)
             return True
@@ -19,6 +24,6 @@ class Solution:
             for col in range(cols):
                 if not vis[row][col]:
                     island = dfs(row, col)
-                    if island: 
+                    if island:
                         island_count += 1
         return island_count
